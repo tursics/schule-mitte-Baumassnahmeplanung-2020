@@ -69,7 +69,7 @@ $(document).on("pageshow", "#pageMap", function () {
 		var size = $('#selectEmbedSize').val().split('x'),
 			x = size[0],
 			y = size[1],
-			html = '<iframe src="https://tursics.github.io/schule-marzahn-2020/" width="' + x + '" height="' + y + '" frameborder="0" style="border:0" allowfullscreen></iframe>';
+			html = '<iframe src="https://tursics.github.io/schule-mitte-Baumassnahmeplanung-2020/" width="' + x + '" height="' + y + '" frameborder="0" style="border:0" allowfullscreen></iframe>';
 
 		$('#inputEmbedURI').val(html);
 		if (-1 === $('#embedMap iframe')[0].outerHTML.indexOf('width="' + x + '"')) {
@@ -78,18 +78,18 @@ $(document).on("pageshow", "#pageMap", function () {
 		}
 	}
 
-	// center the city hall of Marzahn-Hellerdorf
+	// center the city hall of Berlin-Mitte
 	ddj.map.init('mapContainer', {
 		mapboxId: 'tursics.l7ad5ee8',
 		mapboxToken: 'pk.eyJ1IjoidHVyc2ljcyIsImEiOiI1UWlEY3RNIn0.U9sg8F_23xWXLn4QdfZeqg',
 //		attribution: 'icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">flaticon.com</a>',
-		centerLat: 52.536686,
-		centerLng: 13.604863,
+		centerLat: 52.527040,
+		centerLng: 13.338440,
 		zoom: 14,
 		onFocusOnce: mapAction
 	});
 
-	var dataUrlSanierungen = 'https://tursics.com/script/schule-marzahn-2020/spreadsheets.php?nocache=' + (new Date().getTime());
+	var dataUrlSanierungen = 'https://tursics.com/script/schule-mitte-Baumassnahmeplanung-2020/spreadsheets.php?nocache=' + (new Date().getTime());
 
 	$.getJSON(dataUrlSanierungen, function (dataSanierungen) {
 		var data = dataSanierungen;
