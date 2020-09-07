@@ -26,25 +26,47 @@
 	<meta name="twitter:site" content="@tursics">
 	<meta name="twitter:creator" content="@tursics">
 
-	<link rel="stylesheet" href="lib/jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.css">
-	<link rel="stylesheet" href="lib/font-awesome-4.6.3/css/font-awesome.css">
-	<link rel="stylesheet" href="lib/leaflet-0.7.7/leaflet.css" />
-	<link rel="stylesheet" href="theme/worker/index.css" />
-	<link rel="stylesheet" href="lib/leaflet.awesome-markers-2.0.2/leaflet.awesome-markers.css">
+	<!-- setup the data -->
+	<meta name="ddj:data" content="https://tursics.com/script/schule-mitte-Baumassnahmeplanung-2020/spreadsheets.php">
+	<meta name="ddj:dataIgnoreSecondLine" content="false">
+	<meta name="ddj:dataIgnoreLastLine" content="false">
+	<meta name="ddj:dataUniqueIdentifier" content="BSN">
 
-	<script src="lib/d3-3.5.5/d3.min.js"></script>
-	<script src="lib/leaflet-0.7.7/leaflet.js"></script>
-	<script src="lib/jquery.mobile-1.4.2/jquery-1.11.1.min.js"></script>
-	<script src="lib/tursics.ddj.js"></script>
-	<script src="lib/tursics.ddj.map.js"></script>
-	<script src="lib/tursics.ddj.marker.js"></script>
-	<script src="lib/tursics.ddj.quickinfo.js"></script>
-	<script src="lib/tursics.ddj.search.js"></script>
-	<script src="lib/tursics.ddj.voronoi.js"></script>
-	<script src="index.js"></script>
-	<script src="lib/jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.js"></script>
-	<script src="lib/jquery.autocomplete-1.2.25/jquery.autocomplete.min.js"></script>
-	<script src="lib/leaflet.awesome-markers-2.0.2/leaflet.awesome-markers.min.js"></script>
+	<!-- setup the map -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script>
+	<meta name="ddj:mapboxId" content="tursics.l7ad5ee8">
+	<meta name="ddj:mapboxToken" content="pk.eyJ1IjoidHVyc2ljcyIsImEiOiI1UWlEY3RNIn0.U9sg8F_23xWXLn4QdfZeqg">
+	<meta name="ddj:mapCenter" content="52.527040, 13.338440"> <!-- center old city hall of Berlin-Mitte -->
+	<meta name="ddj:mapZoom" content="13">
+
+	<!-- setup the map pins -->
+	<meta name="ddj:pinColor" content="white">
+	<meta name="ddj:pinIconPrefixColumn" content="pin-prefix">
+	<meta name="ddj:pinIconColumn" content="pin">
+
+	<!-- setup the share dialog -->
+	<meta name="ddj:shareURI" content="https://tursics.github.io/schule-mitte-Baumassnahmeplanung-2020/">
+
+	<!-- other -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="ddj.map.css" />
+	<link rel="stylesheet" href="theme/worker/index.css" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/ddj.map@1.0.0/dist/ddj.map.js"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
+
+	<!-- setup the welcome screen -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+
+	<!-- setup the search -->
+	<meta name="ddj:searchTitleColumn" content="Objekt">
+	<meta name="ddj:searchDescriptionColumn" content="Maßnahme">
 
 	<link rel="apple-touch-icon" sizes="57x57" href="/assets/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-icon-60x60.png">
@@ -65,9 +87,13 @@
 </head>
 <body>
 	<div data-role="page" id="pageMap">
-		<div role="main" class="ui-content" id="mapContainer"></div>
+		<div role="main" class="ui-content" id="map">
+			<div class="attribution">
+				<a href="https://www.npmjs.com/package/ddj.map" title="ddj.map">ddj.map</a>
+			</div>
+		</div>
 		<div class="bigSign">
-			<div class="sign visibleWithoutErrors" id="infoSign">
+			<div class="sign visibleWithoutErrors" id="infoSign" data-welcome="box">
 				<h3>
 					<span class="logo"><img src="assets/arms-mitte.svg"></span>
 					Gebäudesanierung 2020 und 2021
@@ -177,7 +203,7 @@
 			<div style="padding:10px 20px;">
 				<h3>Über die Karte</h3>
 				<div>
- 					Berlin, 23.01.2020
+ 					Berlin, 08.09.2020 / Pre-Release
 				</div>
 				<div>
 					Die Daten wurden direkt vom Bezirksamt geliefert
