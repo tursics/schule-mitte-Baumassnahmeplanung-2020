@@ -58,7 +58,7 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="https://unpkg.com/ddj.map@1.0.0/dist/ddj.map.js"></script>	
+	<script src="https://unpkg.com/ddj.map@1.0.1/dist/ddj.map.js"></script>	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
 
 	<!-- setup the welcome screen -->
@@ -110,8 +110,8 @@
 				<div class="visibleWithData hideMobile" style="padding-bottom: 0;">
 					Oder suchen sie nach einem Gebäude:
 				</div>
-				<div class="searchInput visibleWithData hideMobile">
-					<input type="text" name="schools" id="autocomplete" placeholder="hier suchen" />
+				<div data-search="box" class="searchInput visibleWithData hideMobile">
+					<input type="text" name="schools" id="autocomplete" data-search="textinput" placeholder="hier suchen" />
 					<div><i class="fa fa-search" aria-hidden="true"></i></div>
 				</div>
 				<div class="visibleWithoutData center">
@@ -123,13 +123,12 @@
 					<span class="logo"><img src="assets/arms-mitte.svg"></span>
 					<span data-quickdata="Objekt"></span>
 				</h3>
-				<div class="signLine"><span data-quickdata="Straße"></span></div>
+				<div class="signLine">Arbeitsgebiet <span data-quickdata="AG"></span></div>
 				<div>
-					<div>Arbeitsgebiet <span data-quickdata="AG"></span></div>
-					<div><span data-quickdata="Kategorie"></span>. <span data-quickdata="Kategorie-Titel"></span></div>
 					<div data-quickinfo="list">
 						<div data-quickinfo="item">
 							<div class="empty"></div>
+							<div><span data-quickdata="Kategorie"></span>. <span data-quickdata="Kategorie-Titel"></span></div>
 							<div class="bold" data-quickdata="Maßnahme"></div>
 							<div>Gesamtbaukosten: <span data-quickdata="Gesamtbaukosten"></span> €</div>
 							<div>Termin BPU: <span data-quickdata="Termin BPU"></span></div>
